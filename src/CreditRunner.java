@@ -26,4 +26,9 @@
 
 public class CreditRunner {
 
+  public static void main(String[] args) {
+    Credit myCredit = new Credit(0.12, 12, 100);
+    System.out.println(myCredit.getMaximum());
+  }
+
 }

@@ -1,18 +1,18 @@
 public class Credit {
 
-  private final float percent; //процентная ставка по кредиту
+  private final double percent; //процентная ставка по кредиту
 
   private final int months; //срок кредитования
 
-  private final long total; //сумма кредита
+  private long total; //сумма кредита
 
-  public Credit(float percent, int months, long total) {
+  public Credit(double percent, int months, long total) {
     this.percent = percent;
     this.months = months;
     this.total = total;
   }
 
-  public float getPercent() {
+  public double getPercent() {
     return percent;
   }
 
@@ -22,5 +22,18 @@ public class Credit {
 
   public long getTotal() {
     return total;
+  }
+
+  public long setTotal(long total) {
+    return this.total = total;
+  }
+
+  public long getMaximum() {
+    long maxValue = getTotal();
+    for (int i = 0; i < (getMonths() - 1); ++i) {
+      long temp = (long) ((getPercent() / 12) * maxValue);
+      maxValue = maxValue + temp;
+    }
+    return maxValue;
   }
 }
